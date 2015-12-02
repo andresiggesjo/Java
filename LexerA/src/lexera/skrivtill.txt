@@ -50,7 +50,7 @@ BlockNode
 						ExpressionNode
 							TermNode
 								FactorNode
-									IDENT a
+									INT_LIT 1.8
 							ADD_OP +
 							ExpressionNode
 								TermNode

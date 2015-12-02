@@ -1,0 +1,4 @@
+C://Users//Ando//My Documents//Järvafältet.png
+Mos,null,Bussar,null,771|354
+Hålav,null,Tunnelbana,null,244|103
+Horva,Smorva,Tåg,null,513|227

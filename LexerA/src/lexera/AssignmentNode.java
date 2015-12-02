@@ -13,7 +13,7 @@ package lexera;
 public class AssignmentNode implements INode{
     Lexeme identifier;
     Lexeme assign;
-    INode expn;
+    ExpressionNode expn;
     Lexeme semicolon;
     
     

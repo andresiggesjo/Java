@@ -14,9 +14,9 @@ import java.util.logging.Logger;
  */
 public class TermNode implements INode {
 
-    INode fn;
+    FactorNode fn;
     Lexeme multordiv;
-    INode tn;
+    TermNode tn;
     double value;
     
 
@@ -25,18 +25,36 @@ public class TermNode implements INode {
        if(multordiv == null){
             value = (double)fn.evaluate(args);
             
+            
         }
         else{
+             
             value = (double)fn.evaluate(args);
+           
             if(multordiv.value().equals('*')){
                 value = value * (double)tn.evaluate(args);
+                 
             }
             else{
-                value = value / (double)tn.evaluate(args);
+                 
+                value = value / (double)((TermNode)tn).fn.evaluate(args);
+                if(((TermNode)tn).multordiv != null){
+                    value = value / (double) ((TermNode) tn).tn.evaluate(args);
+                   
+                }
+                
+                
+                
+                
+              
+                
+                
+               
+                
             }
             
         }
-        
+
         return value;
     }
 

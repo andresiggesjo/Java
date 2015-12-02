@@ -12,7 +12,7 @@ package lexera;
 public class BlockNode implements INode{
     
     Lexeme lftBrack;
-    INode stmtn;
+    StatementNode stmtn;
     Lexeme rhtBrack;
     int i;
     int counteru = 0;

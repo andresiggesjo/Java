@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class FactorNode implements INode{
     Lexeme inten;
     Lexeme ident;
-    INode exp;
+    ExpressionNode exp;
     Lexeme vp;
     Lexeme hp;
     double value;
@@ -38,6 +38,7 @@ public class FactorNode implements INode{
             value =  (double)exp.evaluate(null);
                     
         }
+
         return value;
     }
     @Override

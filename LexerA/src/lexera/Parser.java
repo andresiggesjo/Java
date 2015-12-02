@@ -59,12 +59,13 @@ public class Parser implements IParser {
         tokenizer.close();
     }
 
-    private INode parseExpressionNode() throws IOException {
+    private ExpressionNode parseExpressionNode() throws IOException {
         ExpressionNode expn = new ExpressionNode();
 
         expn.tn = parseTermNode();
-        while (tokenizer.current().token() == Token.ADD_OP
+        if (tokenizer.current().token() == Token.ADD_OP
                 || tokenizer.current().token() == Token.SUB_OP) {
+            
             expn.plusorminus = tokenizer.current();
             tokenizer.moveNext();
             expn.en = parseExpressionNode();
@@ -74,10 +75,10 @@ public class Parser implements IParser {
 
     }
 
-    private INode parseTermNode() throws IOException {
+    private TermNode parseTermNode() throws IOException {
         TermNode tn = new TermNode();
         tn.fn = parseFactorNode();
-        while (tokenizer.current().token() == Token.MULT_OP
+        if (tokenizer.current().token() == Token.MULT_OP
                 || tokenizer.current().token() == Token.DIV_OP) {
             tn.multordiv = tokenizer.current();
             tokenizer.moveNext();
@@ -87,7 +88,7 @@ public class Parser implements IParser {
         return tn;
     }
 
-    private INode parseFactorNode() throws IOException {
+    private FactorNode parseFactorNode() throws IOException {
         FactorNode fn = new FactorNode();
         if (tokenizer.current().token() == Token.INT_LIT) {
             fn.inten = tokenizer.current();
@@ -116,7 +117,7 @@ public class Parser implements IParser {
         return fn;
     }
 
-    private INode parseStatementNode() throws IOException {
+    private StatementNode parseStatementNode() throws IOException {
         
         StatementNode stmtn = new StatementNode();
         stmtn.asn = parseAssignmentNode();
@@ -135,7 +136,7 @@ public class Parser implements IParser {
 
     }
 
-    private INode parseAssignmentNode() throws IOException {
+    private AssignmentNode parseAssignmentNode() throws IOException {
         AssignmentNode asn = new AssignmentNode();
 
         if (tokenizer.current().token() == Token.IDENT) {

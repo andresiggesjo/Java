@@ -1,0 +1,3 @@
+C://Users//Ando//My Documents//Järvafältet.png
+Hora,null,Bussar,null,518|245
+Hora,Smore,Bussar,null,284|117
