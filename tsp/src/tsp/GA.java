@@ -9,6 +9,7 @@ public class GA {
 
     /* GA parameters */
     //5% mutationsrate
+    //hhh
     private static final double mutationRate = 0.005;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
